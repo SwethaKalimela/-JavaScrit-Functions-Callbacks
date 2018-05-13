@@ -1,0 +1,31 @@
+<script src="./index.js"></script>
+<script>
+        function prepFood(){
+            var tableNo = 1;
+            var item = []; //Defining an empty array to store value of user selected items 
+            let callback=function(){      //Definig a callback function,which is excuted after food prepared
+                serveFood(tableNo,item); //calls serveFood function uon rearing food
+            }
+            var e1=document.getElementById("it1").value; //Reading user values of items
+            var e2=document.getElementById("it2").value;
+            var e3=document.getElementById("it3").value;
+                item.push(e1,e2,e3); //Pushing the values to the empty items array
+                tableNo++; //Increment table number on each order
+                prepareFood(tableNo,item,callback); //call prepareFood that takes tableNo, items array,
+                                                      //Callback (a function that will be called after food is prepared)
+        }
+    </script>
+    <label>Please Enter items you would like to order:</label><br>
+    
+        Item1:<input type="text" list="fooditems" id="it1" ></input><br>
+        Item2:<input type="text" list="fooditems" id="it2"></input><br>
+        Item3:<input type="text" list="fooditems" id="it3"></input><br><br>
+        Enter Table Number:<input type="text" id="tno"></input><br>
+        <datalist id="fooditems"> <!--Maintaing a Datalist for easy user UI Exeriance-->
+                <option value="Burger">
+                <option value="Pasta">
+                <option value="Coke">
+                <option value="Pizza">
+                <option value="Ice-Cream">
+              </datalist>
+    <button onclick="prepFood()">Order</button> <!--OnClick go to prepFood function-->
